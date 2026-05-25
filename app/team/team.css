@@ -1,18 +1,39 @@
 .team-hero {
-  background: linear-gradient(135deg, var(--bg-tertiary) 0%, var(--bg-secondary) 100%);
+  position: relative;
+  overflow: hidden;
   padding: 6rem 2rem;
   text-align: center;
+  background: linear-gradient(135deg, #1a1a1a 0%, #242424 100%);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.team-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 50% 50%, rgba(208, 188, 255, 0.1) 0%, transparent 70%);
+  pointer-events: none;
 }
 
 .team-hero h1 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-  color: var(--text-primary);
+  position: relative;
+  z-index: 1;
+  background: linear-gradient(135deg, #fffbfe 0%, #d0bcff 50%, #64b5f6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: fadeInUp var(--transition-base) ease-out;
 }
 
 .team-hero p {
+  position: relative;
+  z-index: 1;
   font-size: 1.2rem;
-  color: var(--text-secondary);
+  color: var(--color-text-secondary);
+  animation: fadeInUp calc(var(--transition-base) * 1.2) ease-out;
 }
 
 .team-section {
@@ -26,21 +47,22 @@
 
 .team-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 3rem;
-  max-width: 800px;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 4rem;
+  max-width: 900px;
   margin: 0 auto;
 }
 
 .team-card {
   text-align: center;
+  animation: fadeInUp var(--transition-base) ease-out;
 }
 
 .team-card a {
   text-decoration: none;
   color: inherit;
   display: block;
-  transition: all 0.3s;
+  transition: all var(--transition-base);
 }
 
 .team-card:hover {
@@ -48,36 +70,57 @@
 }
 
 .team-card:hover a {
-  color: var(--blue-primary);
+  color: var(--color-accent);
 }
 
 .team-avatar {
-  width: 120px;
-  height: 120px;
+  width: 140px;
+  height: 140px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--blue-primary), var(--blue-hover));
+  background: linear-gradient(135deg, #d0bcff 0%, #64b5f6 100%);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: 700;
-  color: white;
+  color: #000;
   margin: 0 auto 1.5rem;
-  transition: transform 0.3s;
+  transition: all var(--transition-base);
+  box-shadow: 0 0 40px rgba(100, 181, 246, 0.3);
+  border: 3px solid var(--color-border);
+  position: relative;
+}
+
+.team-avatar::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #d0bcff 0%, #64b5f6 100%);
+  opacity: 0;
+  transition: opacity var(--transition-base);
+  z-index: -1;
+  blur: 20px;
 }
 
 .team-card:hover .team-avatar {
-  transform: scale(1.1);
+  transform: scale(1.12);
+  box-shadow: 0 0 60px rgba(100, 181, 246, 0.5);
+  border-color: var(--color-accent);
+}
+
+.team-card:hover .team-avatar::before {
+  opacity: 1;
 }
 
 .team-card h3 {
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   margin-bottom: 0.5rem;
-  color: var(--text-primary);
+  color: var(--color-text-primary);
 }
 
 .team-card p {
-  color: var(--text-secondary);
+  color: var(--color-text-secondary);
   margin-bottom: 1.5rem;
   font-size: 0.95rem;
 }
@@ -85,24 +128,36 @@
 .linkedin-badge {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.6rem 1.2rem;
-  background: var(--bg-secondary);
-  border-radius: 0.5rem;
-  color: var(--blue-primary);
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.8rem 1.5rem;
+  background: linear-gradient(135deg, rgba(100, 181, 246, 0.15) 0%, rgba(208, 188, 255, 0.1) 100%);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-full);
+  color: var(--color-accent);
   font-weight: 600;
-  font-size: 0.9rem;
-  transition: all 0.3s;
+  font-size: 0.95rem;
+  transition: all var(--transition-base);
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+}
+
+.linkedin-badge:hover {
+  background: linear-gradient(135deg, #64b5f6 0%, #d0bcff 100%);
+  color: #000;
+  border-color: var(--color-accent);
+  transform: translateY(-2px);
+  box-shadow: 0 0 30px rgba(100, 181, 246, 0.3);
 }
 
 .linkedin-badge svg {
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
+  transition: transform var(--transition-fast);
 }
 
-.team-card:hover .linkedin-badge {
-  background: var(--blue-primary);
-  color: white;
+.team-card:hover .linkedin-badge svg {
+  transform: scale(1.2);
 }
 
 @media (max-width: 768px) {
@@ -112,5 +167,20 @@
 
   .team-grid {
     grid-template-columns: 1fr;
+    gap: 2rem;
   }
+
+  .team-avatar {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+/* Stagger animations */
+.team-card:nth-child(1) {
+  animation-delay: 0ms;
+}
+
+.team-card:nth-child(2) {
+  animation-delay: 150ms;
 }

@@ -2,8 +2,25 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Mamuka - AdTech Solutions',
-  description: 'Clear, comprehensible AdTech solutions for modern publishers',
+  title: 'Mamuka - AdTech Solutions | Revenue Optimization Platform',
+  description: 'Clear, comprehensible AdTech solutions for modern publishers. Optimize revenue with dynamic floor pricing, Prebid integration, and advanced yield management.',
+  keywords: ['AdTech', 'GAM', 'Prebid', 'UPR', 'Programmatic Advertising', 'Yield Optimization'],
+  viewport: 'width=device-width, initial-scale=1, maximum-scale=5',
+  robots: 'index, follow',
+  openGraph: {
+    title: 'Mamuka - AdTech Solutions',
+    description: 'Revenue optimization for modern publishers',
+    url: 'https://mamuka-site.vercel.app',
+    siteName: 'Mamuka',
+    images: [
+      {
+        url: 'https://mamuka-site.vercel.app/og-image.jpg',
+        width: 1200,
+        height: 630,
+      },
+    ],
+    type: 'website',
+  },
 }
 
 export default function RootLayout({
@@ -13,24 +30,71 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <meta charSet="utf-8" />
+        <meta name="theme-color" content="#0f0f0f" />
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="https://cdn.vercel.sh" />
+      </head>
       <body>
-        <nav>
-          <a href="/" className="nav-logo">Mamuka</a>
-          <ul className="nav-links">
-            <li><a href="/#services">Services</a></li>
-            <li><a href="/case-studies">Case Studies</a></li>
-            <li><a href="/team">Team</a></li>
-            <li><a href="/#contact">Contact</a></li>
-            <li><button className="cta-button">Get Started</button></li>
-          </ul>
-        </nav>
-        {children}
-        <footer>
+        <a href="#main" className="skip-to-content">
+          Skip to main content
+        </a>
+
+        <header role="banner">
+          <nav role="navigation" aria-label="Main navigation">
+            <a href="/" className="nav-logo" aria-current="page">
+              Mamuka
+            </a>
+            <ul className="nav-links">
+              <li>
+                <a href="/#services" aria-label="Navigate to services">
+                  Services
+                </a>
+              </li>
+              <li>
+                <a href="/case-studies" aria-label="Navigate to case studies">
+                  Case Studies
+                </a>
+              </li>
+              <li>
+                <a href="/team" aria-label="Navigate to team">
+                  Team
+                </a>
+              </li>
+              <li>
+                <a href="/#contact" aria-label="Navigate to contact">
+                  Contact
+                </a>
+              </li>
+              <li>
+                <button className="cta-button" aria-label="Get started with Mamuka">
+                  Get Started
+                </button>
+              </li>
+            </ul>
+          </nav>
+        </header>
+
+        <main id="main" role="main">
+          {children}
+        </main>
+
+        <footer role="contentinfo">
           <p>&copy; 2026 Mamuka. All rights reserved.</p>
           <p>
-            <a href="#privacy">Privacy Policy</a> •
-            <a href="#terms">Terms of Service</a> •
-            <a href="mailto:hello@mamuka.dk">Contact Us</a>
+            <a href="#privacy" aria-label="Privacy Policy">
+              Privacy Policy
+            </a>{' '}
+            •
+            <a href="#terms" aria-label="Terms of Service">
+              Terms of Service
+            </a>{' '}
+            •
+            <a href="mailto:hello@mamuka.dk" aria-label="Contact email">
+              Contact Us
+            </a>
           </p>
         </footer>
       </body>
