@@ -1,7 +1,6 @@
 'use client'
 
 import Link from 'next/link'
-import { useState } from 'react'
 import './services.css'
 
 const services = [
@@ -11,16 +10,7 @@ const services = [
     icon: '🔗',
     tagline: 'Header Bidding Made Simple',
     shortDesc: 'Connect 8-15 demand sources for 30-50% CPM lift',
-    fullDesc: `Prebid is the industry standard for header bidding. Our suite handles everything from bidder configuration to optimization, letting you tap into premium demand sources without the technical complexity.`,
-    problem: `Most publishers either use only their primary ad server (missing 30-50% of potential demand) or attempt DIY Prebid and spend months on configuration. You lose revenue while your engineering team gets bogged down in setup.`,
-    solution: `We implement production-ready Prebid with pre-vetted demand partners, optimal timeout tuning, price floors, and real-time monitoring. Go from setup to live in 4-6 weeks.`,
-    benefits: [
-      '30-50% CPM lift from demand competition',
-      'Faster page loads (optimized timeouts)',
-      'Fill unsold inventory',
-      'Better negotiating leverage with primary SSP',
-    ],
-    cta: 'Explore Prebid Setup',
+    description: `Most publishers miss 30-50% of their potential revenue because they're only selling through one or two ad servers. Your inventory is a scarce resource with global demand, but if you're not creating actual competition for it, you're leaving money on the table. Header bidding changes that equation by letting multiple demand partners bid simultaneously on every impression. Instead of a waterfall where the first partner to bid wins, you get real market competition that drives prices up. The impact is immediate and measurable. Publishers typically see CPM increases of 30-50 percent just from implementing proper header bidding with the right partners. That's not a minor optimization—it's structural revenue improvement. We handle the entire implementation: identifying which demand partners match your traffic and content, configuring Prebid with optimal timeout settings so page load stays fast, setting smart floor prices, and monitoring performance in real time. Most publishers go from setup to live production in 4-6 weeks. The revenue lift compounds every quarter, making this one of the highest-ROI initiatives you can undertake.`,
     revenue: '8-15 per 1,000 impressions additional',
   },
   {
@@ -29,16 +19,7 @@ const services = [
     icon: '⚙️',
     tagline: 'AI-Powered Floor Optimization',
     shortDesc: 'Dynamic pricing that adjusts to real-time demand',
-    fullDesc: `Instead of guessing floor prices, our AI learns your demand patterns and adjusts prices automatically. Set it and forget it. Optimize 24/7 even while you sleep.`,
-    problem: `Static floor prices leave money on the table. Too high → lose volume. Too low → leave margin behind. You're either losing deals or leaving revenue on the table, with no way to know which.`,
-    solution: `Machine learning model trained on your 90-day bid history. System recalculates optimal floor 4x daily based on current demand, time of day, seasonality, and trends.`,
-    benefits: [
-      '8-15% revenue lift from optimization',
-      'Improved fill rates',
-      'Real-time adaptation to market changes',
-      'Reduce manual pricing work',
-    ],
-    cta: 'Get Free Floor Audit',
+    description: `Floor price optimization sounds like a small lever, but it's one of the most impactful—and most neglected—knobs in publisher monetization. Static floor prices are crude instruments. Set it too high and you reject bids that would have filled. Set it too low and you leave margin on the table. Most publishers set a floor price once and never touch it again, missing enormous opportunity. Your demand environment is dynamic. Bid prices vary by time of day, day of week, seasonality, current market conditions, and dozens of other factors. An optimal floor price at 9 AM Monday might be completely wrong at 5 PM Friday. Machine learning trained on your actual bid history can identify these patterns and adjust your floors continuously. Our system analyzes your 90-day historical bid data, learns what demand partners are willing to pay under different conditions, and recalculates optimal floor prices four times daily. The system balances grabbing revenue in the moment with maintaining healthy long-term bidder relationships. Publishers implementing this see CPM improvements of 8-15 percent while simultaneously improving fill rates—which sounds impossible but happens because you're optimizing for actual market dynamics instead of guessing. The model learns continuously, adapting as new bidders appear, as seasonal demand shifts, or as your content mix changes.`,
     revenue: '$0.50-$2.00 per 1,000 impressions',
   },
   {
@@ -47,16 +28,7 @@ const services = [
     icon: '📋',
     tagline: 'GAM Orders in 5 Minutes',
     shortDesc: 'Automate order creation from 30 min to 5 min per order',
-    fullDesc: `Stop wrestling with GAM's complex interface. Our 4-step wizard streamlines order creation with validation and automation, multiplying your sales team's capacity.`,
-    problem: `Creating a GAM order manually requires 15-20 steps across 3+ screens. Your sales team spends 30 minutes per order on admin work instead of selling. Configuration errors cost you money. You can't scale sales operations.`,
-    solution: `Simple 4-step wizard: Details → Line Items → Creatives → Review. Validate everything before creation. Auto-create in GAM. Track all orders in one place.`,
-    benefits: [
-      '6x faster order creation',
-      'Fewer configuration errors',
-      'Sales team capacity +300%',
-      'Better client service & faster fulfillment',
-    ],
-    cta: 'See Demo',
+    description: `Creating a Google Ad Manager order looks simple until you actually try it. You need to understand advertiser settings, line item types, targeting options, pacing algorithms, creative specifications. One small misconfiguration—the wrong pacing strategy, targeting that's too narrow, a creative size mismatch—and the order under-delivers or delivers to the wrong audience. Your sales team spends 30 minutes per order navigating GAM's interface, with every order containing the risk of configuration errors. For a sales team handling 50 orders monthly, that's 25 hours spent on administrative work instead of selling. Each order your team creates represents $5,000 to $25,000 in annual advertiser spend. That 25 hours monthly prevents your sales team from handling 50% more business. We've built a simple 4-step wizard that removes the complexity. Step one: enter order basics. Step two: define line items with automatic validation. Step three: upload creatives with size verification. Step four: review everything before creation. The system prevents configuration errors before they happen, automatically creates the order in GAM, and maintains an audit trail of everything. Your sales team goes from 30 minutes per order to 5 minutes. They handle 50% more business with the same headcount. That's revenue growth without hiring.`,
     revenue: '+$50K-$375K per salesperson annually',
   },
   {
@@ -65,16 +37,7 @@ const services = [
     icon: '🎯',
     tagline: 'Fill Unsold Inventory Automatically',
     shortDesc: 'Monetize 20-50% more inventory with programmatic demand',
-    fullDesc: `Direct sales can't fill all inventory. Programmatic fills the gaps with thousands of buyers competing for every impression. Passive revenue from inventory that would otherwise go unsold.`,
-    problem: `20-40% of your inventory goes unsold. You're leaving $50K-$300K annual revenue on the table. But you don't have time to build complex programmatic setup.`,
-    solution: `Connect to premium SSPs (Google AdX, Index Exchange, OpenX, etc.) and open up your remnant inventory to programmatic demand. We handle the setup and optimization.`,
-    benefits: [
-      'Fill 20-50% more inventory',
-      'Passive income from unsold inventory',
-      'Competition drives CPMs up',
-      'Requires no sales effort',
-    ],
-    cta: 'Unlock Remnant Revenue',
+    description: `Your sales team is your primary revenue channel, but they can only maintain so many client relationships. Every publisher has inventory beyond what direct sales can fill. That unsold inventory generates zero revenue. It's completely wasted. Programmatic advertising solves this by connecting your unsold inventory to a global marketplace of buyers. Instead of your sales team manually negotiating deals, technology automatically opens auctions to thousands of potential bidders. A visitor lands on your page, an impression becomes available, all these demand sources bid simultaneously in milliseconds, the highest bidder wins, and their ad displays. The entire process happens in 100 milliseconds. This passive revenue stream requires no sales effort and often generates higher CPMs than you might expect. You're accessing global demand, not just local. You're reaching buyers who'd never negotiate direct deals but will bid competitively for the right inventory. The sophistication scales with your needs. Basic programmatic works well for most publishers. Private Marketplace deals let select premium advertisers buy programmatic inventory at negotiated rates. Preferred deals give key partners early access to quality inventory. Once your core infrastructure is in place, you can layer these strategies on top. Publishers with 20 million monthly impressions where 10-12 million sell directly through their sales team often find the remaining 8-10 million can be filled programmatically, generating $150,000 to $250,000 annually from inventory that previously generated nothing.`,
     revenue: '$2-8 per 1,000 impressions',
   },
   {
@@ -83,16 +46,7 @@ const services = [
     icon: '🎛️',
     tagline: 'Real-Time Ad Operations Dashboard',
     shortDesc: 'See all your GAM data in one place with alerts',
-    fullDesc: `Stop logging into GAM and drilling through reports. Real-time dashboard shows impressions, CPM, fill rate, revenue with instant alerts when something goes wrong.`,
-    problem: `GAM's native interface spreads data across 10+ reports. Takes 20+ minutes to understand daily performance. You miss revenue drops until weeks later.`,
-    solution: `API-powered dashboard pulling live GAM data every 15 minutes. Custom dashboards for your KPIs. Alerts notify you when CPM drops or fill rate falls.`,
-    benefits: [
-      'Real-time visibility into performance',
-      'Catch problems within hours (not weeks)',
-      'Save 5-10 hours/week on reporting',
-      'Make faster, better-informed decisions',
-    ],
-    cta: 'Get Live Dashboard',
+    description: `Google Ad Manager's native reporting spreads critical data across a dozen different screens. Getting a complete picture of daily performance requires visiting multiple dashboards, waiting for report generation, manually synthesizing the data, and exporting to spreadsheets. By the time you understand what happened yesterday, it's ancient history. Real-time visibility changes everything. When something goes wrong—CPMs drop significantly, fill rates decline, a technical issue emerges—you detect it within hours instead of discovering it days later. That early detection is worth thousands of dollars. A publisher detecting a CPM issue within two hours and fixing it might save $5,000 that month. Left undetected for a week, the same issue costs $35,000 or more. Our dashboard consolidates everything into one integrated view. Impressions, clicks, CPM trends, fill rates, revenue, line item pacing, underperforming inventory—it's all visible in real time. The dashboard updates every 15 minutes. You set alerts for specific conditions. You get notified immediately if CPM drops below thresholds or fill rates fall. Ad operations teams typically spend 5-10 hours weekly on manual reporting. The dashboard automates all of it. Custom dashboards for different stakeholders. Automated exports. Scheduled email reports. The team moves from reactive reporting to strategic optimization.`,
     revenue: '2-5% CPM improvement from optimization',
   },
   {
@@ -101,23 +55,12 @@ const services = [
     icon: '💡',
     tagline: 'Expert Assessment & Revenue Roadmap',
     shortDesc: 'Custom strategy for 8-67% revenue growth',
-    fullDesc: `One-size-fits-all solutions don't work. Our specialists audit your entire ad tech stack and create a custom roadmap for your specific business.`,
-    problem: `You don't know where your revenue leaks are. Your ad tech stack is fragmented. Sales process is manual. No clear strategy for growth. Consultants cost $$$$ and don't understand AdTech.`,
-    solution: `50-100 point audit of current state. Identify opportunities ranked by ROI. Custom 12-month roadmap with financial projections. Implementation support.`,
-    benefits: [
-      '8-67% revenue growth over 12 months',
-      '$200K-$2M in identified opportunities',
-      'Custom roadmap for your business',
-      '10x-50x ROI on consulting',
-    ],
-    cta: 'Schedule Consultation',
+    description: `Every publisher's business is different. What works brilliantly for one publisher might be completely wrong for another. Your audience is unique. Your content is unique. Your demand environment is unique. Your competitive position is unique. Generic advice misses the mark. We start with a comprehensive audit of your business. We analyze 50-100 data points across revenue, technology, team structure, and competitive positioning. We understand where your money currently comes from. We benchmark your CPMs against competitors in your category. We assess how your team spends time. We identify gaps between your current state and your potential state. Most publishers have obvious opportunities they're missing. Maybe you've integrated demand partners but never optimized them. Maybe your floor prices haven't been touched in years. Maybe operations that could be automated still run manually. Maybe inventory segments exist that you're not monetizing. Maybe team structure creates bottlenecks limiting growth. We've helped publishers discover 8-67% revenue growth potential through systematic assessment and strategic planning. One publisher thought 8 percent growth was ambitious. Our audit identified Prebid implementation, floor price optimization, and programmatic expansion. Twelve months of implementation later, they'd achieved 90% growth. The engagement takes 4-8 weeks depending on scope. We deliver a detailed report with opportunities ranked by ROI. Then comes the roadmap—a 12-month plan with clear timelines and financial projections. Some initiatives deliver quick wins. Others are foundational. The economics are straightforward. A $30,000 consulting engagement identifying $500,000 in revenue opportunity is the best investment you can make. Publishers achieving transformational growth combine strategic clarity with execution discipline.`,
     revenue: '$200K-$2M additional identified',
   },
 ]
 
 export default function Services() {
-  const [selectedService, setSelectedService] = useState<string | null>(null)
-
   return (
     <>
       <section className="services-hero">
@@ -136,25 +79,7 @@ export default function Services() {
                 <p className="short-desc">{service.shortDesc}</p>
 
                 <div className="service-details">
-                  <div className="detail-section">
-                    <h4>The Problem</h4>
-                    <p>{service.problem}</p>
-                  </div>
-
-                  <div className="detail-section">
-                    <h4>The Solution</h4>
-                    <p>{service.solution}</p>
-                  </div>
-
-                  <div className="detail-section">
-                    <h4>Key Benefits</h4>
-                    <ul className="benefits-list">
-                      {service.benefits.map((benefit, idx) => (
-                        <li key={idx}>{benefit}</li>
-                      ))}
-                    </ul>
-                  </div>
-
+                  <p>{(service as any).description}</p>
                   <div className="revenue-potential">
                     <strong>Revenue Potential:</strong> {service.revenue}
                   </div>
