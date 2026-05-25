@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -69,9 +70,9 @@ export default function RootLayout({
                 </a>
               </li>
               <li>
-                <button className="cta-button" aria-label="Get started with Mamuka">
+                <Link href="/" className="cta-button" aria-label="Get started with Mamuka">
                   Get Started
-                </button>
+                </Link>
               </li>
             </ul>
           </nav>
@@ -84,11 +85,11 @@ export default function RootLayout({
         <footer role="contentinfo">
           <p>&copy; 2026 Mamuka. All rights reserved.</p>
           <p>
-            <a href="#privacy" aria-label="Privacy Policy">
+            <a href="/privacy" aria-label="Privacy Policy">
               Privacy Policy
             </a>{' '}
             •
-            <a href="#terms" aria-label="Terms of Service">
+            <a href="/terms" aria-label="Terms of Service">
               Terms of Service
             </a>{' '}
             •
