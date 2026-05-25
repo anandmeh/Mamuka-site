@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { useState } from 'react'
+import { useState, use } from 'react'
 import { publisherTrendPosts } from '../publisher-trends-all'
 import { remainingBlogPosts } from '../remaining-blogs'
 import '../blog-detail.css'
@@ -467,9 +467,10 @@ const blogContent = {
   ...remainingBlogPosts,
 }
 
-export default function BlogPost({ params }: { params: { id: string } }) {
+export default function BlogPost({ params }: { params: Promise<{ id: string }> }) {
   const [showForm, setShowForm] = useState(false)
-  const post = blogContent[params.id as keyof typeof blogContent]
+  const { id } = use(params)
+  const post = blogContent[id as keyof typeof blogContent]
 
   if (!post) {
     return (
