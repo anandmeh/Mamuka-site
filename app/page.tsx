@@ -8,26 +8,59 @@ export default function Home() {
   const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')
   const [submitted, setSubmitted] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState('')
 
   const handleCTA = (action: string) => {
-    if (action === 'contact') {
-      setShowContactForm(true)
-    } else if (action === 'demo') {
-      setShowContactForm(true)
-    }
+    setShowContactForm(true)
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const validateEmail = (email: string) => {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (email && message) {
-      console.log('Form submitted:', { email, message })
+    setError('')
+
+    if (!email || !message.trim()) {
+      setError('Please fill in all fields')
+      return
+    }
+
+    if (!validateEmail(email)) {
+      setError('Please enter a valid email address')
+      return
+    }
+
+    if (message.trim().length < 10) {
+      setError('Message must be at least 10 characters')
+      return
+    }
+
+    setLoading(true)
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, message }),
+      })
+
+      if (!response.ok) throw new Error('Failed to send')
+
       setSubmitted(true)
+      setEmail('')
+      setMessage('')
+      setError('')
+
       setTimeout(() => {
         setShowContactForm(false)
-        setEmail('')
-        setMessage('')
         setSubmitted(false)
       }, 2000)
+    } catch (err) {
+      setError('Failed to send. Please try again or email hello@mamuka.dk')
+    } finally {
+      setLoading(false)
     }
   }
 
@@ -50,28 +83,36 @@ export default function Home() {
             {submitted ? (
               <div className="success-message">
                 <h3>✓ Thank you!</h3>
-                <p>We've received your message. We'll be in touch soon.</p>
+                <p>We've received your message. We'll be in touch within 24 hours.</p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit}>
+              <form onSubmit={handleSubmit} noValidate>
+                {error && <div className="error-message">{error}</div>}
                 <input
                   type="email"
                   placeholder="Your email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  required
+                  disabled={loading}
                   aria-label="Email address"
+                  required
                 />
                 <textarea
-                  placeholder="Tell us about your project..."
+                  placeholder="Tell us about your project (min. 10 characters)..."
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
-                  required
+                  disabled={loading}
                   rows={5}
                   aria-label="Project details"
+                  required
                 />
-                <button type="submit" className="btn-primary">
-                  Send Message
+                <button
+                  type="submit"
+                  className="btn-primary"
+                  disabled={loading}
+                  aria-busy={loading}
+                >
+                  {loading ? 'Sending...' : 'Send Message'}
                 </button>
               </form>
             )}
@@ -81,8 +122,8 @@ export default function Home() {
 
       {/* Hero Section */}
       <section className="hero">
-        <h1>We Make AdTech Clear & Comprehensible</h1>
-        <p>Empower your advertising strategy with intelligent insights and transparent solutions.</p>
+        <h1>Transform Publisher Revenue with Intelligent Yield Optimization</h1>
+        <p>Data-driven strategies that unlock 8-67% revenue growth. We've helped publishers reclaim millions in lost yield.</p>
         <div className="hero-buttons">
           <button
             className="btn-primary"
@@ -135,7 +176,7 @@ export default function Home() {
             <div className="service-icon">🎯</div>
             <h3>Programmatic Advertising</h3>
             <p>Automated, data-driven advertising solutions that optimize your campaigns in real-time for maximum ROI.</p>
-            <a href="/case-studies" className="service-link">
+            <a href="/case-studies/fullstack" className="service-link">
               Learn more →
             </a>
           </div>
@@ -143,7 +184,7 @@ export default function Home() {
             <div className="service-icon">🎛️</div>
             <h3>GAM Command Center</h3>
             <p>Comprehensive dashboard for managing and monitoring all GAM operations. Real-time insights, pacing metrics, and performance tracking.</p>
-            <a href="/case-studies" className="service-link">
+            <a href="/case-studies/inventory" className="service-link">
               Learn more →
             </a>
           </div>
@@ -189,14 +230,14 @@ export default function Home() {
 
       {/* CTA Section */}
       <section className="cta-section" id="contact">
-        <h2>Ready to Transform Your Advertising?</h2>
-        <p>Join hundreds of companies that trust Mamuka for transparent, effective advertising solutions.</p>
+        <h2>Start Optimizing Revenue Today</h2>
+        <p>Get a free yield analysis of your current setup. Discover your revenue opportunity in 15 minutes.</p>
         <button
           className="btn-primary"
-          onClick={() => handleCTA('demo')}
-          aria-label="Schedule a demo"
+          onClick={() => handleCTA('contact')}
+          aria-label="Get a free yield analysis"
         >
-          Schedule a Demo
+          Get Free Yield Analysis
         </button>
       </section>
     </>

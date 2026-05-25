@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
+import { GetStartedButton } from './components/NavButton'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -77,9 +78,7 @@ export default function RootLayout({
                 </a>
               </li>
               <li>
-                <Link href="/" className="cta-button" aria-label="Get started with Mamuka">
-                  Get Started
-                </Link>
+                <GetStartedButton />
               </li>
             </ul>
           </nav>
