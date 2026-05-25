@@ -1,7 +1,9 @@
 import Link from 'next/link'
+import { publisherTrendPosts } from './publisher-trends-all'
+import { remainingBlogPosts } from './remaining-blogs'
 import './blog.css'
 
-const blogPosts = [
+const serviceGuidePosts = [
   {
     id: 'prebid-integration',
     title: 'Prebid Integration Suite',
@@ -50,6 +52,29 @@ const blogPosts = [
     date: 'May 2026',
     icon: '💡',
   },
+]
+
+const buildPostMetadata = (id: string, post: any) => ({
+  id,
+  title: post.title,
+  excerpt: post.excerpt,
+  readTime: post.readTime.includes('min') ? `${post.readTime} read` : `${post.readTime} min read`,
+  date: post.date,
+  icon: post.icon,
+})
+
+const publisherTrendMetadata = Object.entries(publisherTrendPosts).map(([id, post]) =>
+  buildPostMetadata(id, post)
+)
+
+const remainingBlogsMetadata = Object.entries(remainingBlogPosts).map(([id, post]) =>
+  buildPostMetadata(id, post)
+)
+
+const blogPosts = [
+  ...serviceGuidePosts,
+  ...publisherTrendMetadata,
+  ...remainingBlogsMetadata,
 ]
 
 export default function Blog() {

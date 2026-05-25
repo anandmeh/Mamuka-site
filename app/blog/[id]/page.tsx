@@ -2,9 +2,11 @@
 
 import Link from 'next/link'
 import { useState } from 'react'
+import { publisherTrendPosts } from '../publisher-trends-all'
+import { remainingBlogPosts } from '../remaining-blogs'
 import '../blog-detail.css'
 
-const blogContent = {
+const serviceGuidePosts = {
   'prebid-integration': {
     title: 'Prebid Integration Suite',
     date: 'May 2026',
@@ -459,6 +461,12 @@ These strategic moves can unlock exponential growth potential.`,
   },
 }
 
+const blogContent = {
+  ...serviceGuidePosts,
+  ...publisherTrendPosts,
+  ...remainingBlogPosts,
+}
+
 export default function BlogPost({ params }: { params: { id: string } }) {
   const [showForm, setShowForm] = useState(false)
   const post = blogContent[params.id as keyof typeof blogContent]
@@ -491,22 +499,30 @@ export default function BlogPost({ params }: { params: { id: string } }) {
 
         <div className="blog-detail-content">
           <div className="blog-detail-container">
-            {post.sections.map((section, idx) => (
-              <section key={idx} className="blog-section-block">
-                <h2>{section.title}</h2>
-                <p>{section.content}</p>
+            {(post as any).sections ? (
+              (post as any).sections.map((section, idx) => (
+                <section key={idx} className="blog-section-block">
+                  <h2>{section.title}</h2>
+                  <p>{section.content}</p>
+                </section>
+              ))
+            ) : (
+              <section className="blog-section-block">
+                <p>{(post as any).content}</p>
               </section>
-            ))}
+            )}
 
-            <section className="blog-cta-section">
-              <h2>{post.cta}</h2>
-              <button
-                className="btn-primary"
-                onClick={() => setShowForm(true)}
-              >
-                Get Started
-              </button>
-            </section>
+            {(post as any).cta && (
+              <section className="blog-cta-section">
+                <h2>{(post as any).cta}</h2>
+                <button
+                  className="btn-primary"
+                  onClick={() => setShowForm(true)}
+                >
+                  Get Started
+                </button>
+              </section>
+            )}
           </div>
         </div>
 
