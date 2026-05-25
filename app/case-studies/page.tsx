@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { caseStudies } from '@/app/data/caseStudies'
+import { caseStudies } from '../data/caseStudies'
 import './case-studies.css'
 
 export default function CaseStudies() {
