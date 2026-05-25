@@ -47,18 +47,21 @@ export default function RootLayout({
 
         <header role="banner">
           <nav role="navigation" aria-label="Main navigation">
-            <Link href="/" className="nav-logo" aria-label="Mamuka home">
-              <Image
-                src="/logo.svg"
-                alt="Mamuka logo"
-                width={40}
-                height={40}
-                priority
-              />
+            <Link href="/" className="nav-logo-container" aria-label="Mamuka home">
+              <div className="nav-logo">
+                <Image
+                  src="/logo.svg"
+                  alt="Mamuka logo"
+                  width={40}
+                  height={40}
+                  priority
+                />
+              </div>
+              <span className="nav-logo-text">Mamuka</span>
             </Link>
             <ul className="nav-links">
               <li>
-                <a href="/#services" aria-label="Navigate to services">
+                <a href="/services" aria-label="Navigate to services">
                   Services
                 </a>
               </li>
