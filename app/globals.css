@@ -176,18 +176,23 @@ nav {
 }
 
 .nav-logo {
-  font-size: 1.5rem;
-  font-weight: 700;
-  background: linear-gradient(135deg, #d0bcff 0%, #64b5f6 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  letter-spacing: -0.02em;
-  transition: transform var(--transition-fast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  width: 40px;
+  transition: transform var(--transition-fast), filter var(--transition-fast);
+}
+
+.nav-logo img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
 }
 
 .nav-logo:hover {
-  transform: scale(1.05);
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 8px rgba(100, 181, 246, 0.4));
 }
 
 .nav-links {

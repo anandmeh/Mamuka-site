@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import './globals.css'
 
@@ -45,9 +46,15 @@ export default function RootLayout({
 
         <header role="banner">
           <nav role="navigation" aria-label="Main navigation">
-            <a href="/" className="nav-logo" aria-current="page">
-              Mamuka
-            </a>
+            <Link href="/" className="nav-logo" aria-label="Mamuka home">
+              <Image
+                src="/logo.svg"
+                alt="Mamuka logo"
+                width={40}
+                height={40}
+                priority
+              />
+            </Link>
             <ul className="nav-links">
               <li>
                 <a href="/#services" aria-label="Navigate to services">
