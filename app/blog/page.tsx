@@ -3,57 +3,6 @@ import { publisherTrendPosts } from './publisher-trends-all'
 import { remainingBlogPosts } from './remaining-blogs'
 import './blog.css'
 
-const serviceGuidePosts = [
-  {
-    id: 'prebid-integration',
-    title: 'Prebid Integration Suite',
-    excerpt: 'Complete header bidding solution that drives 30-50% CPM lift by connecting multiple demand sources.',
-    readTime: '8 min read',
-    date: 'May 2026',
-    icon: '🔗',
-  },
-  {
-    id: 'upr-optimization',
-    title: 'UPR Optimization Engine',
-    excerpt: 'Intelligent floor price optimization that adjusts dynamically in real-time for maximum revenue.',
-    readTime: '7 min read',
-    date: 'May 2026',
-    icon: '⚙️',
-  },
-  {
-    id: 'sales-order-creator',
-    title: 'Sales Order Creator',
-    excerpt: 'Streamlined GAM order management that reduces setup time from 30 minutes to 5 minutes.',
-    readTime: '6 min read',
-    date: 'May 2026',
-    icon: '📋',
-  },
-  {
-    id: 'programmatic-advertising',
-    title: 'Programmatic Advertising',
-    excerpt: 'Real-time bidding automation that fills unsold inventory and drives 20-50% revenue from untapped demand.',
-    readTime: '8 min read',
-    date: 'May 2026',
-    icon: '🎯',
-  },
-  {
-    id: 'gam-command-center',
-    title: 'GAM Command Center',
-    excerpt: 'Unified dashboard for real-time ad operations monitoring with alerts and performance tracking.',
-    readTime: '7 min read',
-    date: 'May 2026',
-    icon: '🎛️',
-  },
-  {
-    id: 'consulting-strategy',
-    title: 'Consulting & Strategy',
-    excerpt: 'Expert guidance for publisher revenue transformation with 8-67% growth potential.',
-    readTime: '9 min read',
-    date: 'May 2026',
-    icon: '💡',
-  },
-]
-
 const buildPostMetadata = (id: string, post: any) => ({
   id,
   title: post.title,
@@ -72,7 +21,6 @@ const remainingBlogsMetadata = Object.entries(remainingBlogPosts).map(([id, post
 )
 
 const blogPosts = [
-  ...serviceGuidePosts,
   ...publisherTrendMetadata,
   ...remainingBlogsMetadata,
 ]

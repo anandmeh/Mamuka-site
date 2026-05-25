@@ -2,57 +2,63 @@
 
 import Link from 'next/link'
 import { useState, use } from 'react'
-import { publisherTrendPosts } from '../publisher-trends-all'
-import { remainingBlogPosts } from '../remaining-blogs'
-import '../blog-detail.css'
+import { serviceContent } from '../service-content'
+import '../service-detail.css'
 
-const blogContent = {
-  ...publisherTrendPosts,
-  ...remainingBlogPosts,
-}
-
-export default function BlogPost({ params }: { params: Promise<{ id: string }> }) {
+export default function ServicePage({ params }: { params: Promise<{ id: string }> }) {
   const [showForm, setShowForm] = useState(false)
   const { id } = use(params)
-  const post = blogContent[id as keyof typeof blogContent]
+  const service = serviceContent[id as keyof typeof serviceContent]
 
-  if (!post) {
+  if (!service) {
     return (
       <div style={{ padding: '6rem 2rem', textAlign: 'center' }}>
-        <h1>Post not found</h1>
-        <p>The blog post you're looking for doesn't exist.</p>
-        <Link href="/blog">← Back to Blog</Link>
+        <h1>Service not found</h1>
+        <p>The service you're looking for doesn't exist.</p>
+        <Link href="/services" style={{ color: 'var(--color-accent)' }}>
+          ← Back to Services
+        </Link>
       </div>
     )
   }
 
   return (
     <>
-      <article className="blog-detail">
-        <div className="blog-detail-hero">
-          <div className="blog-detail-container">
-            <div className="blog-detail-icon">{post.icon}</div>
-            <h1>{post.title}</h1>
-            <p className="blog-detail-excerpt">{post.excerpt}</p>
-            <div className="blog-detail-meta">
-              <span>{post.date}</span>
+      <article className="service-detail">
+        <div className="service-detail-hero">
+          <div className="service-detail-container">
+            <div className="service-detail-icon">{service.icon}</div>
+            <h1>{service.title}</h1>
+            <p className="service-detail-excerpt">{service.excerpt}</p>
+            <div className="service-detail-meta">
+              <span>{service.date}</span>
               <span>•</span>
-              <span>{post.readTime}</span>
+              <span>{service.readTime} read</span>
             </div>
           </div>
         </div>
 
-        <div className="blog-detail-content">
-          <div className="blog-detail-container">
-            <section className="blog-section-block">
-              <p>{(post as any).content}</p>
+        <div className="service-detail-content">
+          <div className="service-detail-container">
+            <section className="service-section-block">
+              <p>{service.content}</p>
+            </section>
+
+            <section className="service-cta-section">
+              <h2>Let's Discuss Your Strategy</h2>
+              <button
+                className="btn-primary"
+                onClick={() => setShowForm(true)}
+              >
+                Schedule Consultation
+              </button>
             </section>
           </div>
         </div>
 
-        <div className="blog-nav">
-          <Link href="/blog" className="back-link">
-            ← Back to Blog
+        <div className="service-nav">
+          <Link href="/services" className="back-link">
+            ← Back to Services
           </Link>
         </div>
       </article>
