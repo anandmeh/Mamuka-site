@@ -56,9 +56,84 @@
 
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2.5rem;
   margin-bottom: 4rem;
+}
+
+.service-card-simple {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 3rem 2rem;
+  background: linear-gradient(135deg, rgba(208, 188, 255, 0.05) 0%, rgba(100, 181, 246, 0.05) 100%);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  color: inherit;
+  transition: all var(--transition-base);
+  position: relative;
+  overflow: hidden;
+}
+
+.service-card-simple::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 50% 50%, rgba(208, 188, 255, 0.1) 0%, transparent 70%);
+  pointer-events: none;
+  transition: all var(--transition-base);
+}
+
+.service-card-simple:hover {
+  border-color: var(--color-accent);
+  background: linear-gradient(135deg, rgba(208, 188, 255, 0.1) 0%, rgba(100, 181, 246, 0.1) 100%);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(100, 181, 246, 0.2);
+}
+
+.service-card-simple:hover::before {
+  top: -10%;
+  right: -10%;
+}
+
+.service-card-simple .service-icon {
+  font-size: 3rem;
+  position: relative;
+  z-index: 1;
+  transition: transform var(--transition-base);
+}
+
+.service-card-simple:hover .service-icon {
+  transform: scale(1.1);
+}
+
+.service-card-simple h2 {
+  font-size: 1.4rem;
+  color: var(--color-text-primary);
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  margin: 0;
+}
+
+.service-card-simple .card-arrow {
+  font-size: 1.5rem;
+  color: var(--color-accent);
+  position: relative;
+  z-index: 1;
+  transition: transform var(--transition-base);
+  opacity: 0;
+}
+
+.service-card-simple:hover .card-arrow {
+  opacity: 1;
+  transform: translateX(4px);
 }
 
 .service-card-large {
@@ -235,6 +310,18 @@
   .services-grid {
     grid-template-columns: 1fr;
     gap: 2rem;
+  }
+
+  .service-card-simple {
+    padding: 2rem;
+  }
+
+  .service-card-simple h2 {
+    font-size: 1.2rem;
+  }
+
+  .service-card-simple .service-icon {
+    font-size: 2.5rem;
   }
 
   .service-card-large {
