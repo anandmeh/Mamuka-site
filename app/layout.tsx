@@ -68,6 +68,11 @@ export default function RootLayout({
                 </a>
               </li>
               <li>
+                <a href="/blog" aria-label="Navigate to blog">
+                  Blog
+                </a>
+              </li>
+              <li>
                 <a href="/team" aria-label="Navigate to team">
                   Team
                 </a>

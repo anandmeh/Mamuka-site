@@ -160,9 +160,14 @@ a:hover {
    NAVIGATION - Premium Sticky Header
    ============================================================================ */
 
-nav {
+header {
   position: sticky;
   top: 0;
+  z-index: 1000;
+}
+
+nav {
+  position: relative;
   z-index: 1000;
   background: linear-gradient(180deg, rgba(15, 15, 15, 0.95) 0%, rgba(15, 15, 15, 0.85) 100%);
   backdrop-filter: blur(20px);
@@ -176,18 +181,22 @@ nav {
 }
 
 .nav-logo {
-  display: flex;
+  display: flex !important;
   align-items: center;
   justify-content: center;
   height: 40px;
   width: 40px;
+  flex-shrink: 0;
   transition: transform var(--transition-fast), filter var(--transition-fast);
+  visibility: visible !important;
+  opacity: 1 !important;
 }
 
 .nav-logo img {
   height: 100%;
   width: 100%;
   object-fit: contain;
+  display: block !important;
 }
 
 .nav-logo:hover {
