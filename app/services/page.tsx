@@ -1,13 +1,14 @@
 import Link from 'next/link'
+import { serviceContent } from './service-content'
 import './services.css'
 
 const services = [
-  { id: 'prebid-integration', title: 'Prebid Integration Suite', icon: '🔗' },
-  { id: 'upr-engine', title: 'UPR Optimization Engine', icon: '⚙️' },
-  { id: 'sales-order-creator', title: 'Sales Order Creator', icon: '📋' },
-  { id: 'programmatic-guide', title: 'Programmatic Advertising Suite', icon: '🎯' },
-  { id: 'gam-dashboard', title: 'GAM Command Center', icon: '🎛️' },
-  { id: 'consulting', title: 'Consulting & Strategy', icon: '💡' },
+  { id: 'prebid-integration' },
+  { id: 'upr-engine' },
+  { id: 'sales-order-creator' },
+  { id: 'programmatic-guide' },
+  { id: 'gam-dashboard' },
+  { id: 'consulting' },
 ]
 
 export default function Services() {
@@ -21,13 +22,19 @@ export default function Services() {
       <section className="services-listing">
         <div className="services-container">
           <div className="services-grid">
-            {services.map((service) => (
-              <Link key={service.id} href={`/services/${service.id}`} className="service-card-simple">
-                <div className="service-icon">{service.icon}</div>
-                <h2>{service.title}</h2>
-                <div className="card-arrow">→</div>
-              </Link>
-            ))}
+            {services.map((service) => {
+              const content = serviceContent[service.id as keyof typeof serviceContent]
+              return (
+                <Link key={service.id} href={`/services/${service.id}`} className="service-card">
+                  <div className="service-card-header">
+                    <div className="service-icon">{content.icon}</div>
+                    <h2>{content.title}</h2>
+                  </div>
+                  <p className="service-description">{content.content.split('\n\n')[0]}</p>
+                  <div className="read-more">Read full article →</div>
+                </Link>
+              )
+            })}
           </div>
         </div>
       </section>
