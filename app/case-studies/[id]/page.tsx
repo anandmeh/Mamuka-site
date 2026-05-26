@@ -9,8 +9,9 @@ export function generateStaticParams() {
   }))
 }
 
-export default function CaseStudyDetail({ params }: { params: { id: string } }) {
-  const study = caseStudies.find((s) => s.id === params.id)
+export default async function CaseStudyDetail({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params
+  const study = caseStudies.find((s) => s.id === id)
 
   if (!study) {
     return (
