@@ -152,7 +152,7 @@ export default function Home() {
             <div className="service-icon">🔗</div>
             <h3>Prebid Integration Suite</h3>
             <p>Complete solution for header bidding setup and management. Simplifies Prebid configuration, line item creation, and bidder optimization.</p>
-            <a href="/case-studies/prebid" className="service-link">
+            <a href="/services/prebid-integration" className="service-link">
               Learn more →
             </a>
           </div>
@@ -160,7 +160,7 @@ export default function Home() {
             <div className="service-icon">⚙️</div>
             <h3>UPR Optimization Engine</h3>
             <p>Production-ready system that dynamically optimizes GAM floor prices. Delivers +8-15% revenue lift through intelligent price optimization.</p>
-            <a href="/case-studies/upr" className="service-link">
+            <a href="/services/upr-engine" className="service-link">
               Learn more →
             </a>
           </div>
@@ -168,7 +168,7 @@ export default function Home() {
             <div className="service-icon">📋</div>
             <h3>Sales Order Creator</h3>
             <p>4-step wizard for creating GAM orders with integrated order tracking, delivery pacing visualization, and line-item management.</p>
-            <a href="/case-studies/video" className="service-link">
+            <a href="/services/sales-order-creator" className="service-link">
               Learn more →
             </a>
           </div>
@@ -176,7 +176,7 @@ export default function Home() {
             <div className="service-icon">🎯</div>
             <h3>Programmatic Advertising</h3>
             <p>Automated, data-driven advertising solutions that optimize your campaigns in real-time for maximum ROI.</p>
-            <a href="/case-studies/fullstack" className="service-link">
+            <a href="/services/programmatic-guide" className="service-link">
               Learn more →
             </a>
           </div>
@@ -184,7 +184,7 @@ export default function Home() {
             <div className="service-icon">🎛️</div>
             <h3>GAM Command Center</h3>
             <p>Comprehensive dashboard for managing and monitoring all GAM operations. Real-time insights, pacing metrics, and performance tracking.</p>
-            <a href="/case-studies/inventory" className="service-link">
+            <a href="/services/gam-dashboard" className="service-link">
               Learn more →
             </a>
           </div>
@@ -192,8 +192,8 @@ export default function Home() {
             <div className="service-icon">💡</div>
             <h3>Consulting & Strategy</h3>
             <p>Expert guidance to develop and execute advertising strategies aligned with your business goals.</p>
-            <a href="#contact" onClick={() => handleCTA('contact')} className="service-link">
-              Get in touch →
+            <a href="/services/consulting" className="service-link">
+              Learn more →
             </a>
           </div>
         </div>
