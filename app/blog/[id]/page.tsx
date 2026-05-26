@@ -10,8 +10,9 @@ const blogContent = {
   ...remainingBlogPosts,
 }
 
-export function generateMetadata({ params }: { params: { id: string } }): Metadata {
-  const post = blogContent[params.id as keyof typeof blogContent]
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
+  const { id } = await params
+  const post = blogContent[id as keyof typeof blogContent]
 
   if (!post) {
     return {

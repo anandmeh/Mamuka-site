@@ -3,8 +3,9 @@ import ClientComponent from './client'
 import { serviceContent } from '../service-content'
 import '../service-detail.css'
 
-export function generateMetadata({ params }: { params: { id: string } }): Metadata {
-  const service = serviceContent[params.id as keyof typeof serviceContent]
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
+  const { id } = await params
+  const service = serviceContent[id as keyof typeof serviceContent]
 
   if (!service) {
     return {
