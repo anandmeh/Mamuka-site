@@ -47,42 +47,22 @@ export function CaseStudyClient({
           </Link>
           <div className="case-study-icon-large">{study.icon}</div>
           <h1>{study.title}</h1>
-          <p>{study.summary}</p>
+          <p className="case-study-excerpt">{study.excerpt}</p>
+          <div className="case-study-meta">
+            <span>{study.date}</span>
+            <span>•</span>
+            <span>{study.readTime} read</span>
+          </div>
         </div>
       </section>
 
       <section className="case-study-detail-content">
         <div className="case-study-detail-container">
-          <div className="detail-section">
-            <h2>Challenge</h2>
-            <p>{study.challenge}</p>
-          </div>
-
-          <div className="detail-section">
-            <h2>Solution</h2>
-            <ul className="solution-list">
-              {study.solution.map((item, idx) => (
-                <li key={idx}>{item}</li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="detail-section">
-            <h2>Results</h2>
-            <div className="results-grid">
-              {study.results.map((result, idx) => {
-                const parts = result.split(' ')
-                const metric = parts[0]
-                const description = parts.slice(1).join(' ')
-                return (
-                  <div key={idx} className="result-item">
-                    <strong>{metric}</strong>
-                    <span>{description}</span>
-                  </div>
-                )
-              })}
-            </div>
-          </div>
+          <section className="case-study-section-block">
+            {study.content.split('\n\n').map((paragraph, index) => (
+              <p key={index}>{paragraph}</p>
+            ))}
+          </section>
 
           <div className="detail-section cta-section">
             <h2>Ready to Achieve Similar Results?</h2>

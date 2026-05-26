@@ -18,8 +18,9 @@ export default function CaseStudies() {
                 <div className="case-study-card">
                   <div className="case-study-icon">{study.icon}</div>
                   <h3>{study.title}</h3>
-                  <p>{study.summary}</p>
+                  <p>{study.excerpt}</p>
                   <div className="card-footer">
+                    <span className="read-time">{study.readTime}</span>
                     <span className="read-more">Read More →</span>
                   </div>
                 </div>
