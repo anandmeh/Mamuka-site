@@ -5,7 +5,7 @@
 .service-detail-hero {
   background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%);
   border-bottom: 1px solid var(--color-border);
-  padding: 6rem 2rem;
+  padding: 3rem 2rem;
 }
 
 .service-detail-container {
@@ -14,41 +14,41 @@
 }
 
 .service-detail-icon {
-  font-size: 4rem;
-  margin-bottom: 2rem;
+  font-size: 2.5rem;
+  margin-bottom: 0.75rem;
   display: block;
 }
 
 .service-detail-hero h1 {
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   font-weight: 700;
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
   color: var(--color-text-primary);
-  line-height: 1.2;
+  line-height: 1.35;
 }
 
 @media (max-width: 768px) {
   .service-detail-hero h1 {
-    font-size: 2rem;
+    font-size: 1.6rem;
   }
 }
 
 .service-detail-excerpt {
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: var(--color-text-secondary);
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   line-height: 1.6;
 }
 
 .service-detail-meta {
   display: flex;
-  gap: 1rem;
+  gap: 0.75rem;
   font-size: 0.9rem;
   color: var(--color-text-tertiary);
 }
 
 .service-detail-content {
-  padding: 4rem 2rem;
+  padding: 3.5rem 2rem;
   background: var(--color-bg-primary);
 }
 
@@ -58,14 +58,14 @@
 }
 
 .service-section-block {
-  margin-bottom: 3rem;
+  margin-bottom: 2.5rem;
 }
 
 .service-section-block p {
-  font-size: 1rem;
-  line-height: 1.8;
+  font-size: 0.95rem;
+  line-height: 1.65;
   color: var(--color-text-secondary);
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
   text-align: left;
 }
 
@@ -74,25 +74,25 @@
 }
 
 .service-cta-section {
-  margin-top: 4rem;
+  margin-top: 3rem;
   padding-top: 2rem;
   border-top: 1px solid var(--color-border);
   text-align: center;
 }
 
 .service-cta-section h2 {
-  font-size: 1.5rem;
-  margin-bottom: 1.5rem;
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
   color: var(--color-text-primary);
 }
 
 .service-cta-section .btn-primary {
-  padding: 0.875rem 2rem;
-  font-size: 1rem;
+  padding: 0.75rem 1.75rem;
+  font-size: 0.95rem;
 }
 
 .service-nav {
-  padding: 2rem;
+  padding: 1.5rem;
   text-align: center;
 }
 
