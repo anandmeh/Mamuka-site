@@ -44,7 +44,9 @@ export default function BlogPostClient({ params }: { params: Promise<{ id: strin
         <div className="blog-detail-content">
           <div className="blog-detail-container">
             <section className="blog-section-block">
-              <p>{post.content}</p>
+              {post.content.split('\n\n').map((paragraph, index) => (
+                <p key={index}>{paragraph}</p>
+              ))}
             </section>
           </div>
         </div>

@@ -40,7 +40,9 @@ export default function ServicePageClient({ params }: { params: Promise<{ id: st
         <div className="service-detail-content">
           <div className="service-detail-container">
             <section className="service-section-block">
-              <p>{service.content}</p>
+              {service.content.split('\n\n').map((paragraph, index) => (
+                <p key={index}>{paragraph}</p>
+              ))}
             </section>
 
             <section className="service-cta-section">
