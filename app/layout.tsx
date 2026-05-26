@@ -41,7 +41,7 @@ export default function RootLayout({
       <head>
         <meta charSet="utf-8" />
         <meta name="theme-color" content="#0f0f0f" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="dns-prefetch" href="https://cdn.vercel.sh" />
       </head>

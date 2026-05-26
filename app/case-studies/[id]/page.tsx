@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import type { Metadata } from 'next'
 import { caseStudies } from '../../data/caseStudies'
 import '../case-study-detail.css'
 import { CaseStudyClient } from './client'
@@ -7,6 +8,29 @@ export function generateStaticParams() {
   return caseStudies.map((study) => ({
     id: study.id,
   }))
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
+  const { id } = await params
+  const study = caseStudies.find((s) => s.id === id)
+
+  if (!study) {
+    return {
+      title: 'Case Study Not Found',
+      description: 'The case study you are looking for does not exist.',
+    }
+  }
+
+  return {
+    title: `${study.title} | Mamuka Case Studies`,
+    description: study.excerpt,
+    openGraph: {
+      title: study.title,
+      description: study.excerpt,
+      type: 'article',
+      url: `https://mamuka-site.vercel.app/case-studies/${study.id}`,
+    },
+  }
 }
 
 export default async function CaseStudyDetail({ params }: { params: Promise<{ id: string }> }) {
