@@ -47,7 +47,7 @@ export default function Blog() {
                     <span className="date">{post.date}</span>
                   </div>
                   <div className="read-more">
-                    Read Article →
+                    View Article →
                   </div>
                 </article>
               </Link>

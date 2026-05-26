@@ -45,7 +45,7 @@ export default function BlogPost({ params }: { params: Promise<{ id: string }> }
         <div className="blog-detail-content">
           <div className="blog-detail-container">
             <section className="blog-section-block">
-              <p>{(post as any).content}</p>
+              <p>{post.content}</p>
             </section>
           </div>
         </div>

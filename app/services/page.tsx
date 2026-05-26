@@ -31,7 +31,7 @@ export default function Services() {
                     <h2>{content.title}</h2>
                   </div>
                   <p className="service-description">{content.content.split('\n\n')[0]}</p>
-                  <div className="read-more">Read full article →</div>
+                  <div className="read-more">View Details →</div>
                 </Link>
               )
             })}
