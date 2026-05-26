@@ -1,14 +1,19 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { GetStartedButton } from './components/NavButton'
 import './globals.css'
 
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+}
+
 export const metadata: Metadata = {
   title: 'Mamuka - AdTech Solutions | Revenue Optimization Platform',
   description: 'Clear, comprehensible AdTech solutions for modern publishers. Optimize revenue with dynamic floor pricing, Prebid integration, and advanced yield management.',
   keywords: ['AdTech', 'GAM', 'Prebid', 'UPR', 'Programmatic Advertising', 'Yield Optimization'],
-  viewport: 'width=device-width, initial-scale=1, maximum-scale=5',
   robots: 'index, follow',
   openGraph: {
     title: 'Mamuka - AdTech Solutions',
